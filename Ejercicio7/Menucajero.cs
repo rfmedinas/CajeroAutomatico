@@ -23,6 +23,7 @@ namespace Ejercicio7
             cuenta = banco.cuentaLogeada();
             this.banco = banco;
             InitializeComponent();
+            this.groupBox1.Text = banco.name + " Número de cuenta " + cuenta.cuenta + "\nTitular " + cuenta.usuario + "\nMovimientos ";
         }
 
         //BOTON REGISTRAR

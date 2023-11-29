@@ -56,12 +56,11 @@ namespace Ejercicio7
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(26, 24);
+            this.groupBox1.Location = new System.Drawing.Point(26, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(527, 317);
+            this.groupBox1.Size = new System.Drawing.Size(582, 352);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = banco.name + " Número de cuenta " + cuenta.cuenta + " Titular " + cuenta.usuario + " Movimientos ";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
@@ -73,7 +72,7 @@ namespace Ejercicio7
             this.groupBox2.Controls.Add(this.CuentaTrasferencia);
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(223, 28);
+            this.groupBox2.Location = new System.Drawing.Point(224, 52);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(298, 133);
             this.groupBox2.TabIndex = 11;
@@ -135,7 +134,7 @@ namespace Ejercicio7
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(14, 28);
+            this.groupBox3.Location = new System.Drawing.Point(14, 52);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(202, 133);
             this.groupBox3.TabIndex = 2;
@@ -168,7 +167,7 @@ namespace Ejercicio7
             this.listBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(14, 167);
+            this.listBox1.Location = new System.Drawing.Point(14, 199);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(508, 124);
             this.listBox1.TabIndex = 0;
@@ -177,7 +176,7 @@ namespace Ejercicio7
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(559, 24);
+            this.button5.Location = new System.Drawing.Point(614, 24);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(182, 59);
             this.button5.TabIndex = 10;
@@ -188,7 +187,7 @@ namespace Ejercicio7
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(559, 214);
+            this.button2.Location = new System.Drawing.Point(614, 226);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(182, 51);
             this.button2.TabIndex = 16;
@@ -199,7 +198,7 @@ namespace Ejercicio7
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(559, 90);
+            this.button3.Location = new System.Drawing.Point(614, 89);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(182, 59);
             this.button3.TabIndex = 18;
@@ -210,7 +209,7 @@ namespace Ejercicio7
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(559, 156);
+            this.button6.Location = new System.Drawing.Point(614, 157);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(182, 51);
             this.button6.TabIndex = 19;
@@ -218,18 +217,18 @@ namespace Ejercicio7
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
-            // Form1
+            // Menucajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 361);
+            this.ClientSize = new System.Drawing.Size(837, 389);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "Menucajero";
             this.Text = "Cajero";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
