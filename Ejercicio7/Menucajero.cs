@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace Ejercicio7
 {
-    public partial class Form1 : Form
+    public partial class Menucajero : Form
     {
         Cuenta cuenta = new Cuenta();
         Banco banco = null;
         
-        public Form1(Banco banco)
+        public Menucajero(Banco banco)
         {
             cuenta = banco.cuentaLogeada();
             this.banco = banco;
@@ -105,7 +105,7 @@ namespace Ejercicio7
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            Form4 Form = new Form4(cuenta,banco.pesosPuntos);
+            CanjearPuntos Form = new CanjearPuntos(cuenta,banco.pesosPuntos);
             Form.ShowDialog();
         }
 

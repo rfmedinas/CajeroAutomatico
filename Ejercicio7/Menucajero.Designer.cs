@@ -1,7 +1,7 @@
 ﻿
 namespace Ejercicio7
 {
-    partial class Form1
+    partial class Menucajero
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,7 @@ namespace Ejercicio7
             this.groupBox1.Size = new System.Drawing.Size(527, 317);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = banco.name + " Número de cuenta " + cuenta.cuenta + " Movimientos ";
+            this.groupBox1.Text = banco.name + " Número de cuenta " + cuenta.cuenta + " Titular " + cuenta.usuario + " Movimientos ";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
@@ -181,7 +181,7 @@ namespace Ejercicio7
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(182, 59);
             this.button5.TabIndex = 10;
-            this.button5.Text = "CONSULTA DE SALDO";
+            this.button5.Text = "Consultar Saldo";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -192,7 +192,7 @@ namespace Ejercicio7
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(182, 51);
             this.button2.TabIndex = 16;
-            this.button2.Text = "CERRAR";
+            this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -203,7 +203,7 @@ namespace Ejercicio7
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(182, 59);
             this.button3.TabIndex = 18;
-            this.button3.Text = "CONSULTA PUNTOS VIVE COLOMBIA";
+            this.button3.Text = "Consultar Puntos Vive Colombia";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -214,7 +214,7 @@ namespace Ejercicio7
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(182, 51);
             this.button6.TabIndex = 19;
-            this.button6.Text = "CANJERAR PUNTOS VIVE COLOMBIA";
+            this.button6.Text = "Redimir Puntos Vive Colombia";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 

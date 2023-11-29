@@ -1,7 +1,7 @@
 ﻿
 namespace Ejercicio7
 {
-    partial class Form4
+    partial class CanjearPuntos
     {
         /// <summary>
         /// Required designer variable.

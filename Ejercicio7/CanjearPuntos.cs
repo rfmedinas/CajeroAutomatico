@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Ejercicio7
 {
-    public partial class Form4 : Form
+    public partial class CanjearPuntos : Form
     {
         Cuenta cuenta = new Cuenta();
         int pesosPuntos = 0;
-        public Form4(Cuenta cuenta,int pesosPuntos)
+        public CanjearPuntos(Cuenta cuenta,int pesosPuntos)
         {
             this.cuenta= cuenta;
             this.pesosPuntos = pesosPuntos;

@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Ejercicio7
 {
-    public partial class Form2 : Form
+    public partial class Autenticacion : Form
 
     {
-        Banco banco = new Banco(1, "Davivienda", 2000000, 7);
-        public Form2()
+        Banco banco = new Banco(1, "Banco Financo ", 2000000, 7);
+        Banco banco1 = new Banco(2, "Money Bank", 3000000, 7);
+        public Autenticacion()
         {
             inicializarBanco();
             InitializeComponent();
@@ -33,17 +34,18 @@ namespace Ejercicio7
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if(banco.autenticar(textBox1.Text, textBox2.Text))
+            if(banco.autenticar(numerocuenta.Text, Clave.Text))
             {
-                textBox1.Clear();
-                textBox2.Clear();
-                Form1 Form = new Form1(banco);
+                numerocuenta.Clear();
+                Clave.Clear();
+                Menucajero Form = new Menucajero(banco);
                 Form.ShowDialog();
             }else
             {
                 MessageBox.Show("Autenticacion no valida");
-                textBox1.Clear();
-                textBox1.Focus();
+                numerocuenta.Clear();
+                Clave.Clear();
+                numerocuenta.Focus();
                 return;
             }
         }
