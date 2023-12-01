@@ -9,35 +9,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//** Autor:Ráúl Fernando Medina Sandoval
+//** Fecha: 28/11/2023
 namespace Ejercicio7
 {
     public partial class CanjearPuntos : Form
+    // Propiedades de la clase CanjearPuntos
     {
-        Cuenta cuenta = new Cuenta();
-        int pesosPuntos = 0;
+        Cuenta cuenta = new Cuenta();  // Representa la cuenta asociada al canjeo de puntos
+        int pesosPuntos = 0;       // Valor en pesos asociado a cada punto
+
+        // Constructor de la clase CanjearPuntos
         public CanjearPuntos(Cuenta cuenta,int pesosPuntos)
         {
-            this.cuenta= cuenta;
+            // Inicialización de la cuenta y el valor en pesos por punto
+            this.cuenta= cuenta;   
             this.pesosPuntos = pesosPuntos;
             InitializeComponent();
         }
-
+        // Eventos para el clic en el botón de redimir  puntos
         private void button1_Click(object sender, EventArgs e)
         {
-            int cantidad = int.Parse(textBox1.Text);
-
+            int cantidad = int.Parse(numpuntos.Text);
+            // Verifica si la cuenta tiene suficientes puntos para redimir
             if (cuenta.puedeRedimir(cantidad))
             {
-                
+                // Realiza el canjeo de puntos y muestra un mensaje con la cantidad redimida  
                 Double result =cuenta.redimirPuntos(cantidad,pesosPuntos);
-                System.Windows.Forms.MessageBox.Show("PUNTOS CAJEADOS: " + cantidad + " por $" + result.ToString());
-                textBox1.Clear();
+                System.Windows.Forms.MessageBox.Show("La cantidad de puntos Redimidos fue de: " + cantidad + " por  un valor de $" + result.ToString());
+                numpuntos.Clear();
             }
             else
-            {
-                System.Windows.Forms.MessageBox.Show("-/ OPERACIÓN NO VÁLIDA (PUNTOS INSUFICIENTE) /-");
-                textBox1.Clear();
+            { // Muestra un mensaje si el saldo de puntos es insuficiente
+                System.Windows.Forms.MessageBox.Show("-/ Operación no valida Saldo de Puntos Insuficiente /-");
+                numpuntos.Clear();
             }
+        }
+
+        private void CanjearPuntos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

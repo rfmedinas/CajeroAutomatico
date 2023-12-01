@@ -65,11 +65,12 @@ public class Cuenta
     {
         return this.saldo;
     }
-   
+    // Método para consultar la cantidad de puntos asociados a la cuenta
     public int consultarPuntos()
     {
         return this.puntos;
     }
+    // Método para establecer el estado de inicio de sesión (logueado o no)
     public void setLogin(Boolean login)
     {
         this.isLoggin=login;

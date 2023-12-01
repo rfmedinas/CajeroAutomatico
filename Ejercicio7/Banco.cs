@@ -93,7 +93,7 @@ public class Banco
     }
     public Boolean validarTope(Double valor)
     {
-        return valor <= topeRetiro;
+        return valor > topeRetiro;
     }
 
 }

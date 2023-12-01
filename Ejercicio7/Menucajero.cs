@@ -3,36 +3,37 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Creado por German David Rojas Gonzalez
+//** Autor:Ráúl Fernando Medina Sandoval
+//** Fecha: 28/11/2023
 
 namespace Ejercicio7
 {
     public partial class Menucajero : Form
+    // Propiedades de la clase Menucajero
     {
         Cuenta cuenta = new Cuenta();
         Banco banco = null;
-        
+
+        // Constructor de la clase Menucajero
         public Menucajero(Banco banco)
         {
+            // Inicialización de la cuenta del cajero y del banco
             cuenta = banco.cuentaLogeada();
             this.banco = banco;
             InitializeComponent();
+            // Actualización del texto del groupBox1 con información l Naco, cuenta y  titular
             this.groupBox1.Text = banco.name + " Número de cuenta " + cuenta.cuenta + "\nTitular " + cuenta.usuario + "\nMovimientos ";
         }
 
-        //BOTON REGISTRAR
-        /*private void button1_Click(object sender, EventArgs e)
-        {
-            Form3 Form = new Form3(banco);
-            Form.ShowDialog();
-        }*/
-        // BOTON PARA CERRAR
+
+        // Evento para el clic en el botón de cerrar la aplicación
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -45,26 +46,36 @@ namespace Ejercicio7
 
         }
 
-        // BOTON DONDE SE REGISTRA LA INFORMACIÓN DEL RETIRO
+        // Evento donde se realiza la accion de retiro de dinero
         private void button4_Click(object sender, EventArgs e)
         {
-            double cantidad = double.Parse(textBox5.Text);
-            if (cuenta.retiro(cantidad))
+            // Verifica el tope de retiros diarios
+            double cantidad = double.Parse(valorretiro.Text);
+            if (banco.validarTope(cantidad))
             {
-                listBox1.Items.Add("MONTO RETIRADO: " + " $" + cantidad);
-                textBox5.Clear();
+                System.Windows.Forms.MessageBox.Show("El movimiento supera el tope de retiros de: $" + banco.topeRetiro + "  diarios: ");
             }
             else
             {
-                listBox1.Items.Add("-/ OPERACIÓN NO VÁLIDA (SALDO INSUFICIENTE) /-");
-                textBox5.Clear();
+                // Realiza el retiro si es válido
+                if (cuenta.retiro(cantidad))
+                {
+                    listBox1.Items.Add("El monto Retirado fue: " + " $" + cantidad);
+                    valorretiro.Clear();
+                }
+                else
+                {
+                    listBox1.Items.Add("-/ Operación no valida Saldo Insuficiente /-");
+                    valorretiro.Clear();
+                }
             }
         }
 
-        //BOTON PARA GENERAR EL ESTADO DE LA CUENTA
+        //Evento para Generar el estado de Cuenta
         private void button5_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("SALDO DE LA CUENTA: " + cuenta.saldo.ToString() + "\n" + "\n" + DateTime.Now.ToString());
+            // Muestra un cuadro de mensaje con el saldo actual de la cuenta y la fecha actual
+            System.Windows.Forms.MessageBox.Show("El Saldo de la cuenta Número " + cuenta.cuenta + " es: $ "+ cuenta.saldo.ToString() + "\n" + "\n" + DateTime.Now.ToString());
 
         }
 
@@ -86,7 +97,7 @@ namespace Ejercicio7
         private void button6_Click(object sender, EventArgs e)
         {
 
-                    }
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -95,15 +106,15 @@ namespace Ejercicio7
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
-
+        // Eventos para el clic en el botón de consulta de puntos acumulado
         private void button3_Click_1(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("PUNTOS ACUMULADOS: " + cuenta.puntos.ToString() + "\n" + "\n" + DateTime.Now.ToString());
+            // Muestra un cuadro de mensaje con la cantidad de puntos acumulados
+            System.Windows.Forms.MessageBox.Show(" El saldo de puntos Acumulados es : " + cuenta.puntos.ToString() + "\n" + "\n" + DateTime.Now.ToString());
 
         }
-
+        // Abre el formulario CanjearPuntos para realizar el proceso redimir  de puntos
         private void button6_Click_1(object sender, EventArgs e)
         {
             CanjearPuntos Form = new CanjearPuntos(cuenta,banco.pesosPuntos);
@@ -114,29 +125,31 @@ namespace Ejercicio7
         {
 
         }
-
+        // Evento para el clic en el botón de realizar transferencia
         private void button7_Click(object sender, EventArgs e)
         {
             string cuentra = CuentaTrasferencia.Text;
             double cantidad = double.Parse(Valortransferencia.Text);
             Cuenta cuentadest = banco.obtenerCuenta(cuentra);
+
             if (!cuentadest.cuenta.Equals(cuentra))
+            // Verifica la existencia de la cuenta destino
             {
-                System.Windows.Forms.MessageBox.Show("--/ OPERACIÓN NO VÁLIDA (CUENTA NO EXISTE) /--");
+                System.Windows.Forms.MessageBox.Show("--/ Operación no valida Cuenta Destino de la Transferencia no Existe o no es del mismo Banco /--");
                 CuentaTrasferencia.Clear();
             }
             else
             {
-
+                // Realiza la transferencia si es válida
                 if (banco.transferencia(cuenta.cuenta, cuentra, cantidad))
                 {
-                    listBox1.Items.Add("LA CUENTA A LA QUE HIZO LA TRANSFERENCIA ES: " + cuentra + "\n" + " MONTO TRANSFERIDO: " + " $" + cantidad);
+                    listBox1.Items.Add("Se realizo trasnferencia a la cuenta: " + cuentra + "\n" + " por valor de : " + " $" + cantidad);
                     Valortransferencia.Clear();
                     CuentaTrasferencia.Clear();
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("--/ OPERACIÓN NO VÁLIDA (SALDO INSUFICIENTE) /--");
+                    System.Windows.Forms.MessageBox.Show("--/ Operación no valida Saldo Insuficiente /--");
                     Valortransferencia.Clear();
                     CuentaTrasferencia.Clear();
                 }
@@ -154,6 +167,11 @@ namespace Ejercicio7
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
