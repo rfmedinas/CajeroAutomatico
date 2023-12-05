@@ -30,7 +30,10 @@ public class Cuenta
         this.isLoggin = false;
     }
     // Constructor  de la clase cuenta por defecto
-    public Cuenta() { }
+    public Cuenta() 
+    { 
+    }
+
     public Double redimirPuntos(int puntos, Double pesosPuntos)
     {
         Double result = puntos * pesosPuntos;

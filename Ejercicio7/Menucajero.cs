@@ -49,8 +49,19 @@ namespace Ejercicio7
         // Evento donde se realiza la accion de retiro de dinero
         private void button4_Click(object sender, EventArgs e)
         {
-            // Verifica el tope de retiros diarios
+            if (valorretiro == null || "".Equals(valorretiro.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar el valor del retiro");
+                return;
+            }
+            if (!Util.validarNumeroPositivo(valorretiro.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar un numero valido para el retiro");
+                return;
+            }
             double cantidad = double.Parse(valorretiro.Text);
+            // Verifica el tope de retiros diarios
+          
             if (banco.validarTope(cantidad))
             {
                 System.Windows.Forms.MessageBox.Show("El movimiento supera el tope de retiros de: $" + banco.topeRetiro + "  diarios: ");
@@ -128,14 +139,31 @@ namespace Ejercicio7
         // Evento para el clic en el botón de realizar transferencia
         private void button7_Click(object sender, EventArgs e)
         {
+            if (!Util.validarNumeroPositivo(Valortransferencia.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar un numero valido para la transferencia");
+                return;
+            }
+
+            if (Valortransferencia ==null || "".Equals (Valortransferencia.Text)) 
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar el valor de la transferencia");
+                return;
+            }
+
+            if (CuentaTrasferencia == null || "".Equals(CuentaTrasferencia.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar el numero mde cuenta destino de la transferencia");
+                return;
+            }
             string cuentra = CuentaTrasferencia.Text;
             double cantidad = double.Parse(Valortransferencia.Text);
             Cuenta cuentadest = banco.obtenerCuenta(cuentra);
 
-            if (!cuentadest.cuenta.Equals(cuentra))
+            if (!cuentra.Equals (cuentadest.cuenta))
             // Verifica la existencia de la cuenta destino
             {
-                System.Windows.Forms.MessageBox.Show("--/ Operación no valida Cuenta Destino de la Transferencia no Existe o no es del mismo Banco /--");
+                System.Windows.Forms.MessageBox.Show("Operación no valida Cuenta Destino de la Transferencia no Existe o no es del mismo Banco ");
                 CuentaTrasferencia.Clear();
             }
             else

@@ -30,10 +30,17 @@ namespace Ejercicio7
         // Eventos para el clic en el botón de redimir  puntos
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!Util.validarNumeroPositivo(numpuntos.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Debe registar un numero valido de puntos  para redimir");
+                return;
+            }
+
             int cantidad = int.Parse(numpuntos.Text);
             // Verifica si la cuenta tiene suficientes puntos para redimir
             if (cuenta.puedeRedimir(cantidad))
             {
+
                 // Realiza el canjeo de puntos y muestra un mensaje con la cantidad redimida  
                 Double result =cuenta.redimirPuntos(cantidad,pesosPuntos);
                 System.Windows.Forms.MessageBox.Show("La cantidad de puntos Redimidos fue de: " + cantidad + " por  un valor de $" + result.ToString());

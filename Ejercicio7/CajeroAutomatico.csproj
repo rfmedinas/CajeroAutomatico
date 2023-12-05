@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
     <EmbeddedResource Include="Menucajero.resx">
       <DependentUpon>Menucajero.cs</DependentUpon>
     </EmbeddedResource>
